@@ -14,10 +14,12 @@ export default function ManageAdmins() {
 
     const [showAddAdminModal, setShowAddAdminModal] = useState(false);
     const [newAdminEmail, setNewAdminEmail] = useState('');
-    const [newAdminPassword, setNewAdminPassword] = useState(''); // New password state
+    const [newAdminPassword, setNewAdminPassword] = useState(''); 
     const [addAdminError, setAddAdminError] = useState('');
 
     const [editAdmin, setEditAdmin] = useState(null);
+    const [editAdminEmail, setEditAdminEmail] = useState('');
+    const [editAdminPassword, setEditAdminPassword] = useState('');
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -54,7 +56,7 @@ export default function ManageAdmins() {
 
     const handleAddAdmin = async () => {
         const token = localStorage.getItem('token');
-        const originAdmin = localStorage.getItem('adminEmail'); // assuming admin email is stored locally
+        const originAdmin = localStorage.getItem('adminEmail'); 
 
         try {
             const response = await fetch('/api/admin/manage-admins', {
@@ -65,8 +67,8 @@ export default function ManageAdmins() {
                 },
                 body: JSON.stringify({
                     email: newAdminEmail,
-                    password: newAdminPassword, // Include password
-                    origin: originAdmin, // Include origin of current admin
+                    password: newAdminPassword, 
+                    origin: originAdmin, 
                 }),
             });
 
@@ -78,7 +80,7 @@ export default function ManageAdmins() {
             setAdmins([...admins, newAdmin]);
             setShowAddAdminModal(false);
             setNewAdminEmail('');
-            setNewAdminPassword(''); // Reset password input
+            setNewAdminPassword('');
             setAddAdminError('');
         } catch (error) {
             console.error("Add admin error:", error);
@@ -90,19 +92,23 @@ export default function ManageAdmins() {
         const token = localStorage.getItem('token');
         try {
             const response = await fetch(`/api/admin/manage-admins/${editAdmin.id}`, {
-                method: 'PATCH',
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`,
                 },
-                body: JSON.stringify({ email: editAdmin.email }),
+                body: JSON.stringify({ 
+                    email: editAdminEmail, 
+                    password: editAdminPassword,
+                }),
             });
 
             if (!response.ok) {
                 throw new Error("Failed to update admin.");
             }
 
-            setAdmins(admins.map((admin) => (admin.id === editAdmin.id ? editAdmin : admin)));
+            const updatedAdmin = await response.json();
+            setAdmins(admins.map((admin) => (admin.id === editAdmin.id ? { ...admin, email: updatedAdmin.email } : admin)));
             setEditAdmin(null);
         } catch (error) {
             console.error("Failed to edit admin:", error);
@@ -111,6 +117,8 @@ export default function ManageAdmins() {
 
     const handleEditButtonClick = (admin) => {
         setEditAdmin(admin);
+        setEditAdminEmail(admin.email); 
+        setEditAdminPassword(''); // Clear password input when editing
     }
 
     const handleDeleteAdmin = async (id) => {
@@ -177,6 +185,29 @@ export default function ManageAdmins() {
                                 <button onClick={handleAddAdmin} className="p-2 mt-2 text-white bg-green-500 rounded">Confirm Add</button>
                                 <button onClick={() => setShowAddAdminModal(false)} className="p-2 mt-2 ml-2 text-white bg-red-500 rounded">Cancel</button>
                                 {addAdminError && <p className="mt-2 text-red-500">{addAdminError}</p>}
+                            </div>
+                        </div>
+                    )}
+
+                    {editAdmin && (
+                        <div className="fixed inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50">
+                            <div className="p-5 bg-white rounded">
+                                <h2 className="text-xl font-medium">Edit Admin</h2>
+                                <input
+                                    type="email"
+                                    value={editAdminEmail}
+                                    onChange={(e) => setEditAdminEmail(e.target.value)}
+                                    className="w-full p-2 my-2 border rounded"
+                                />
+                                <input
+                                    type="password"
+                                    value={editAdminPassword}
+                                    placeholder="New Password (optional)"
+                                    onChange={(e) => setEditAdminPassword(e.target.value)}
+                                    className="w-full p-2 my-2 border rounded"
+                                />
+                                <button onClick={handleEditAdmin} className="p-2 mt-2 text-white bg-green-500 rounded">Confirm Edit</button>
+                                <button onClick={() => setEditAdmin(null)} className="p-2 mt-2 ml-2 text-white bg-red-500 rounded">Cancel</button>
                             </div>
                         </div>
                     )}
