@@ -21,7 +21,7 @@ export default function TestimonialCarousel({ testimonials = [] }) {
             modules={[EffectCards, Navigation]}
             navigation
             centeredSlides
-            className="testimonial-swiper"
+            className="w-1/2 testimonial-swiper"
             style={{ overflow: "visible" }} // Prevent overflow from hidden overflow
         >
             {testimonials.map((testimonial, index) => (
@@ -31,7 +31,7 @@ export default function TestimonialCarousel({ testimonials = [] }) {
                             <img
                                 src={testimonial.image}
                                 alt="testimonial image"
-                                className="w-32 h-32 rounded-full aspect-square"
+                                className="w-32 h-32 border-4 border-gray-400 rounded-full aspect-square"
                             />
                         </div>
                         <h3 className="mt-3 font-medium text-center text-yellow-200">{testimonial.name}</h3>

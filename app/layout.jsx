@@ -8,7 +8,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "THE VA BAR",
+  title: "THE VA BAR Academy",
   description: "Enter your description here.",
 };
 
