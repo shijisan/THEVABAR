@@ -60,14 +60,14 @@ export default function HomePage() {
             <section className="w-full min-h-screen bg-red-950 hero">
                 <div className="w-full min-h-screen heroClip"></div>
                 <div className="absolute top-0 flex flex-col items-center justify-center w-full h-full">
-                    <h1 className="py-3 text-5xl font-medium text-transparent fill-transparent bg-clip-text bg-gradient-to-b from-yellow-50 to-yellow-200">This is the homepage!</h1>
+                    <h1 className="py-3 text-5xl font-medium text-center text-transparent fill-transparent bg-clip-text bg-gradient-to-b from-yellow-50 to-yellow-200">This is the homepage!</h1>
                     <p className="text-center text-yellow-600 lg:w-4/6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat libero id nisl fermentum, a malesuada nunc ullamcorper. Nullam vel nisi at nunc venenatis facilisis. Curabitur at malesuada odio, sit amet luctus orci.</p>
                     <a href="/" className="p-2 mt-5 transition-colors bg-yellow-200 rounded-md shadow hover:bg-yellow-300 text-red-950">Learn More</a>
                 </div>
             </section>
 
-            <section className="flex flex-row w-full min-h-screen bg-red-950">
-                <div className="flex flex-col justify-center w-1/2 min-h-screen p-4 about">
+            <section className="flex flex-col w-full min-h-screen lg:flex-row bg-red-950">
+                <div className="flex flex-col justify-center w-full min-h-screen p-4 lg:w-1/2 about">
                     <h2 className="font-bold text-9xl">Text Text</h2>
                     <br />
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat libero id nisl fermentum, a malesuada nunc ullamcorper. Nullam vel nisi at nunc venenatis facilisis. Curabitur at malesuada odio, sit amet luctus orci.</p>
@@ -76,7 +76,7 @@ export default function HomePage() {
                         <button className="w-32 p-2 transition-colors bg-yellow-200 rounded-md shadow hover:bg-yellow-300 text-red-950">CTA</button>
                     </div>
                 </div>
-                <div className="grid w-1/2 pt-[10vh] min-h-[90vh] grid-cols-2 grid-rows-2 gap-2 p-5">
+                <div className="grid lg:w-1/2 w-full pt-[10vh] min-h-[90vh] grid-cols-2 grid-rows-2 gap-2 p-5">
                     <div className="flex flex-col justify-center">
                         <img src="https://placehold.co/200x100/webp" alt="important person" />
                         <div className="relative -top-6">
@@ -129,11 +129,11 @@ export default function HomePage() {
                 </div>
             </section>
 
-            <section className="flex items-center justify-center min-h-screen pt-[10vh]">
-                <div className="flex items-center justify-center w-1/2">
-                    <img src="https://placehold.co/500x500/webp" alt="vabarlogo" />
+            <section className="flex lg:flex-row flex-col items-center justify-center min-h-screen pt-[10vh]">
+                <div className="flex items-center justify-center w-full lg:w-1/2 lg:full h-1/2">
+                    <img src="https://placehold.co/300x300/webp" alt="vabarlogo" />
                 </div>
-                <div className="w-1/2 max-w-2xl p-4 mx-auto faq-section">
+                <div className="w-full max-w-2xl p-4 mx-auto lg:w-1/2 faq-section">
                     <h2 className="mb-6 text-2xl font-bold">Frequently Asked Questions</h2>
                     {faqData.map((item, index) => (
                         <div key={index} className="p-5 my-3 bg-gray-100 border border-gray-300 rounded-lg faq-item">

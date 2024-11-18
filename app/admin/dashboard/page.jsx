@@ -24,9 +24,9 @@ export default function AdminDashboardPage() {
 
     return (
         <>
-            <div className="flex">
+            <div className="flex ">
                 <AdminSideBar />
-                <section className="flex items-center justify-center w-full h-full min-h-screen">
+                <section className="flex items-center justify-center h-full min-h-screen lg:w-10/12">
                     <h1>Hello, Admin!</h1>
                 </section>
             </div>

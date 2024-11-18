@@ -21,12 +21,12 @@ export default function TestimonialCarousel({ testimonials = [] }) {
             modules={[EffectCards, Navigation]}
             navigation
             centeredSlides
-            className="w-1/2 testimonial-swiper"
+            className="w-5/6 lg:w-1/2 testimonial-swiper"
             style={{ overflow: "visible" }} // Prevent overflow from hidden overflow
         >
             {testimonials.map((testimonial, index) => (
                 <SwiperSlide key={testimonial.id} style={{ marginLeft: '10px', marginRight: '10px' }}>
-                    <div className={`border testimonial-card h-96 p-3 ${redShades[index % redShades.length]}`}>
+                    <div className={`border testimonial-card h-96 py-5 px-10 ${redShades[index % redShades.length]}`}>
                         <div className="flex justify-center">
                             <img
                                 src={testimonial.image}

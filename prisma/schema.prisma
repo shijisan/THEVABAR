@@ -26,3 +26,12 @@ model Testimonial {
   content   String
   image     String   
 }
+
+model Course {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  price       Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

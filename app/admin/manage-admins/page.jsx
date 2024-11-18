@@ -154,7 +154,7 @@ export default function ManageAdmins() {
         <>
             <div className="flex">
                 <AdminSideBar />
-                <div className='container flex flex-col items-center justify-center w-full p-5 bg-white'>
+                <div className='container flex flex-col items-center justify-center p-5 bg-white lg:w-10/12'>
                     <div className="w-full py-3 border-b-2">
                         <h2 className='text-2xl font-medium'>Manage Admins</h2>
                     </div>
@@ -231,11 +231,11 @@ export default function ManageAdmins() {
                                         <td className='p-2 px-2 m-auto border-2'>
                                             <button
                                                 onClick={() => handleEditButtonClick(admin)}
-                                                className='px-3 py-1 bg-yellow-200 rounded text-red-950'
+                                                className='px-3 py-1 bg-yellow-200 rounded hover:bg-yellow-300 text-red-950'
                                             >
                                                 Edit
                                             </button>
-                                            <button onClick={() => handleDeleteAdmin(admin.id)} className='p-1 text-yellow-200 rounded bg-red-950'>Delete</button>
+                                            <button onClick={() => handleDeleteAdmin(admin.id)} className='p-1 text-yellow-200 rounded hover:bg-yellow-300 bg-red-950'>Delete</button>
                                         </td>
                                     </tr>
                                 ))}

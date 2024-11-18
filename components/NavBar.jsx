@@ -19,12 +19,12 @@ export default function NavBar(){
                     <h2 className="text-lg font-medium text-white">THE VA BAR <span className='text-yellow-200'>Academy</span></h2>
                 </div>
                 <button onClick={toggleMenu} className="w-1/5 lg:w-0 menu lg:hidden">
-                    <FontAwesomeIcon className='p-1 rounded-full hover:bg-opacity-35 aspect-square hover:bg-white' icon={isMenuOpen ? faXmark : faBars}/>
+                    <FontAwesomeIcon className='p-1 h-[3vh] hover:bg-opacity-35 aspect-square hover:bg-white' icon={isMenuOpen ? faXmark : faBars}/>
                 </button>
             </div>
             <ul className={`${isMenuOpen ? "flex" : "hidden"} lg:flex flex-col items-center justify-center w-full lg:bg-transparent bg-yellow-200 lg:space-x-5 text-red-950 lg:text-yellow-200 lg:flex-row gap-y-1`}>
                 <li className='py-1'><a href="/">Home</a></li>
-                <li className='py-1'><a href="/">Link 1</a></li>
+                <li className='py-1'><a href="/courses">Courses</a></li>
                 <li className='py-1'><a href="/">Link 2</a></li>
                 <li className='py-1'><a href="/">Link 3</a></li>
             </ul>
