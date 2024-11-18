@@ -112,7 +112,7 @@ export default function HomePage() {
                 </div>
             </section>
 
-            <section className="flex items-center justify-center min-h-screen">
+            <section className={`flex items-center justify-center min-h-screen ${testimonials.length === 0 ? 'hidden' : ''}`}>
                 <div className="w-full">
                     {isLoading ? (
                         <p className="text-gray-500">Loading testimonials...</p>
@@ -128,6 +128,7 @@ export default function HomePage() {
                     )}
                 </div>
             </section>
+
 
             <section className="flex lg:flex-row flex-col items-center justify-center min-h-screen pt-[10vh]">
                 <div className="flex items-center justify-center w-full lg:w-1/2 lg:full h-1/2">
