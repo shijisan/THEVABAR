@@ -1,6 +1,4 @@
-"use client";
-
-import { useEffect, useState } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 
 function CourseApplicationContent() {
@@ -15,6 +13,7 @@ function CourseApplicationContent() {
 	const courseId = searchParams.get("courseId");
 	const router = useRouter();
 
+	// Only fetch course data when on the client side
 	useEffect(() => {
 		if (courseId) {
 			const fetchCourse = async () => {
@@ -119,16 +118,15 @@ function CourseApplicationContent() {
 						/>
 					</div>
 
-
 					{error && <p className="text-red-500">{error}</p>}
 
-						<button
-							type="submit"
-							className="p-2 bg-yellow-200 rounded shadow text-red-950 hover:bg-yellow-300"
-							disabled={isSubmitting}
-						>
-							{isSubmitting ? "Submitting..." : "Submit"}
-						</button>
+					<button
+						type="submit"
+						className="p-2 bg-yellow-200 rounded shadow text-red-950 hover:bg-yellow-300"
+						disabled={isSubmitting}
+					>
+						{isSubmitting ? "Submitting..." : "Submit"}
+					</button>
 				</>
 			)}
 		</form>
@@ -138,7 +136,9 @@ function CourseApplicationContent() {
 export default function CourseApplicationPage() {
 	return (
 		<div className="flex items-center justify-center w-full min-h-screen">
-			<CourseApplicationContent />
+			<Suspense fallback={<div>Loading Course Data...</div>}>
+				<CourseApplicationContent />
+			</Suspense>
 		</div>
 	);
 }
