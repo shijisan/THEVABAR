@@ -42,7 +42,7 @@ export default function AdminLoginPage() {
 
     return (
         <section className="flex items-center justify-center w-full min-h-screen">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-3 p-5 bg-white border rounded-lg border-red-950 lg:w-1/3">
+            <form onSubmit={handleSubmit} className="flex flex-col w-full max-w-sm gap-3 p-5 bg-white border rounded-lg border-red-950">
                 <h2 className="text-2xl font-medium text-center">Admin Login</h2>
                 <div className="flex flex-col w-full">
                     <label htmlFor="email">Email:</label>

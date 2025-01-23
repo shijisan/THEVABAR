@@ -10,6 +10,7 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
@@ -17,18 +18,24 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@prisma/client": "^5.22.0",
     "bcryptjs": "^2.4.3",
+    "canvas": "^3.1.0",
     "cloudinary": "^2.5.1",
+    "install": "^0.13.0",
+    "jsbarcode": "^3.11.6",
     "jsonwebtoken": "^9.0.2",
+    "jsqr": "^1.4.0",
     "jwt-decode": "^4.0.0",
-    "multer": "^1.4.5-lts.1",
     "next": "15.0.1",
+    "npm": "^11.0.0",
     "pg": "^8.13.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "streamifier": "^0.1.1",
-    "swiper": "^11.1.14"
+    "swiper": "^11.1.14",
+    "uuid": "^11.0.5"
   },
   "devDependencies": {
+    "@types/node": "^22.10.8",
     "postcss": "^8",
     "prisma": "^5.22.0",
     "tailwindcss": "^3.4.1"
