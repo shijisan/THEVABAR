@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import LoadingPage from "@/components/LoadingPage";
 
 export default function CoursesPage() {
 	const [courses, setCourses] = useState([]);
@@ -29,19 +30,22 @@ export default function CoursesPage() {
 	};
 
 	return (
-		<div className="container p-4 mx-auto">
-			<h1 className="mb-6 text-3xl font-bold text-center">Available Courses</h1>
+		<main className="pt-[10vh]">
+			<h1 className="my-6 text-3xl font-semibold text-center">Available Courses</h1>
 			{courses.length === 0 ? (
-				<p>Loading courses...</p>
+				<LoadingPage/>
 			) : (
-				<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				<div className="grid gap-4 p-4 sm:grid-cols-2 lg:grid-cols-4">
 					{courses.map((course) => (
-						<div key={course.id} className="p-4 bg-white border rounded-lg shadow-lg">
-							<h2 className="text-xl font-semibold">{course.name}</h2>
-							<p>Price: {course.price}</p>
+						<div key={course.id} className="flex flex-col h-full p-4 bg-white border rounded-lg shadow">
+							<div className="flex-grow">
+								<h2 className="text-xl font-semibold">{course.name}</h2>
+								<p className="mb-2 text-sm">Price: &#8369;{course.price}</p>
+								<p className="text-sm">{course.description}</p>
+							</div>
 							<button
 								onClick={() => handleApply(course.id)}
-								className="p-2 mt-4 text-white bg-blue-500 rounded hover:bg-blue-600"
+								className="p-2 mt-4 text-white bg-blue-500 rounded justify-self-end hover:bg-blue-600"
 							>
 								Apply for this Course
 							</button>
@@ -49,6 +53,6 @@ export default function CoursesPage() {
 					))}
 				</div>
 			)}
-		</div>
+		</main>
 	);
 }

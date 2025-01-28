@@ -27,18 +27,18 @@ export default function NavBar() {
   return (
     <nav
       ref={navRef}
-      className="h-[10vh] fixed top-0 left-0 w-full z-30 flex items-center transition-all bg-red-950 text-yellow-200"
+      className="h-[10vh] fixed top-0 left-0 w-full z-30 flex items-center transition-all bg-red-950 text-yellow- px-4"
     >
-      <div className="flex items-center justify-between w-full px-4 lg:px-8">
+      <div className="flex items-center justify-between w-full">
         {/* Logo */}
-        <h2 className="text-lg font-medium text-white lg:w-1/2">
+        <h2 className="text-lg font-medium text-white md:text-2xl">
           THE VA BAR <span className="text-yellow-200">Academy</span>
         </h2>
 
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMenu}
-          className="p-2 text-yellow-200 lg:hidden focus:outline-none"
+          className="p-2 text-yellow-200 md:hidden focus:outline-none"
         >
           <FontAwesomeIcon ref={expandIconRef} icon={faBars} className={`${isMenuOpen ? "hidden" : ""} h-6`} />
           <FontAwesomeIcon ref={closeIconRef} icon={faXmark} className={`${isMenuOpen ? "" : "hidden"} h-6`} />
@@ -48,12 +48,12 @@ export default function NavBar() {
       {/* Navigation Links */}
       <ul
         ref={navListRef}
-        className="hidden lg:flex lg:flex-row flex-col justify-center items-center lg:space-x-5 lg:w-1/2 bg-yellow-200 lg:bg-transparent text-red-950 lg:text-yellow-200 absolute lg:relative lg:h-auto h-[90vh] lg:top-0 top-[10vh] left-0 w-full"
+        className="hidden md:flex md:flex-row flex-col justify-evenly items-center md:w-1/2 bg-yellow-200 md:bg-transparent text-red-950 md:text-yellow-200 absolute md:relative md:h-auto h-[90vh] md:top-0 top-[10vh] left-0 w-full"
       >
-        <li className="py-2 lg:py-0"><a href="/">Home</a></li>
-        <li className="py-2 lg:py-0"><a href="/courses">Courses</a></li>
-        <li className="py-2 lg:py-0"><a href="/certificates">Certificates</a></li>
-        <li className="py-2 lg:py-0"><a href="/">Link 3</a></li>
+        <li className=""><a href="/">Home</a></li>
+        <li className=""><a href="/courses">Courses</a></li>
+        <li className=""><a href="/certificates">Certificates</a></li>
+        <li className=""><a href="/">Link 3</a></li>
       </ul>
     </nav>
   );

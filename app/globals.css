@@ -2,14 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #fafafa;
-  --foreground: #171717;
-}
-
 body {
-  color: var(--foreground);
-  background: url("../public/bg-grid.svg");
+  color: black;
+  background-image: url("../public/bg-grid.svg");
   font-family: poppins ,Arial, Helvetica, sans-serif;
 }
 
@@ -28,4 +23,12 @@ body {
 
 .swiper-button-prev, .swiper-button-next{
   color: #fef2f2!important;
+}
+
+@layer components{
+
+  body{
+    @apply bg-neutral-50
+  }
+
 }
